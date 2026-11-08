@@ -1,30 +1,30 @@
 # 🎯 V-TRACKER TERMINAL | Valorant Stats SPA
 
-Интерактивное веб-приложение (Single Page Application) для отслеживания статистики игроков в Valorant. Проект позволяет искать игроков, просматривать историю изменений рейтинга и детально изучать результаты каждого матча без перезагрузки страниц.
+An interactive Single Page Application (SPA) for tracking Valorant player statistics. This project allows you to search for players, view their Ranked Rating (RR) history, and explore detailed post-match scoreboards without reloading the page.
 
-## 🚀 Ключевой функционал
+## 🚀 Key Features
 
-- **Быстрый поиск профиля:** Вывод текущего ранга, очков RR (Ranked Rating), общего Elo и уровня аккаунта.
-- **История матчей:** Отображение последних игр с цветовой индикацией побед/поражений и подсчетом изменения рейтинга.
-- **Детальная статистика матча:** Динамическая генерация таблицы счета (Scoreboard) для обеих команд, аналогичная внутриигровой.
-- **Продвинутая математика:** Вычисление показателей **ACS** (Average Combat Score), **K/D Ratio**, разницы Убийств/Смертей (+/-) и **HS%** (процент хедшотов) на лету из сырых данных.
-- **Перекрестная навигация:** Возможность кликнуть на любого игрока в послематчевой таблице, чтобы мгновенно загрузить его профиль и историю (бесконечная навигация).
+- **Quick Profile Search:** Displays current rank, RR (Ranked Rating), total Elo, and account level.
+- **Match History:** Shows recent games with color-coded win/loss/draw indicators and MMR changes.
+- **Detailed Match Statistics:** Dynamically generates an in-game style Scoreboard for both teams (Attackers & Defenders).
+- **Advanced Analytics:** Calculates **ACS** (Average Combat Score), **K/D Ratio**, Kill/Death difference (+/-), and **HS%** (Headshot percentage) on the fly from raw API data.
+- **Cross-Navigation:** Click on any player in the match scoreboard to instantly load their profile and match history (infinite SPA navigation).
 
-## 🛠 Стек технологий
+## 🛠 Tech Stack
 
 - **Frontend:** HTML5, CSS3 (Custom Styles), Bootstrap 5
-- **Логика:** Vanilla JavaScript (ES6+), Async/Await, Fetch API, Делегирование событий (Event Delegation)
-- **Архитектура:** SPA (управление состоянием экранов через классы без перезагрузки)
-- **API:** [HenrikDev Valorant REST API](https://github.com/Henrik-3/unofficial-valorant-api) (эндпоинты `/v1/account`, `/v1/mmr-history/`, `/v2/match/`)
+- **Logic:** Vanilla JavaScript (ES6+), Async/Await, Fetch API, Event Delegation
+- **Architecture:** SPA (UI state management via DOM manipulation without page reloads)
+- **API:** [HenrikDev Valorant REST API](https://github.com/Henrik-3/unofficial-valorant-api) (Endpoints: `/v1/account`, `/v1/mmr-history/`, `/v2/match/`)
 
-## 💡 Особенности реализации
-В проекте реализован паттерн **делегирования событий** для оптимизации работы со слушателями в DOM. Глобальные обработчики перехватывают клики по динамически сгенерированным карточкам матчей и строкам игроков, что исключает утечки памяти и дублирование запросов.
+## 💡 Implementation Highlights
+The project implements the **Event Delegation** pattern to optimize DOM event listeners. Global handlers capture clicks on dynamically generated match cards and player rows, preventing memory leaks and duplicate API requests. Advanced combat statistics (like ACS and HS%) are not provided directly by the API but are mathematically computed on the client side.
 
-## ⚙️ Запуск проекта
-Проект состоит исключительно из фронтенд-файлов. Для запуска достаточно:
-1. Склонировать репозиторий: `git clone https://github.com/LapsFor/valorant-tracker.git`
-2. Открыть файл `index.html` в любом современном браузере.
-*(Примечание: для корректной работы запросов может потребоваться локальный сервер, например, Live Server в VS Code).*
+## ⚙️ How to Run
+The project consists entirely of frontend files. To run it locally:
+1. Clone the repository: `git clone https://github.com/LapsFor/valorant-tracker.git`
+2. Open the `index.html` file in any modern web browser.
+*(Note: Using a local development server like Live Server in VS Code is recommended for proper API fetching).*
 
 ---
-**Разработчик:** Denys Tkachenko ([@LapsFor](https://github.com/LapsFor))
+**Developer:** Denys Tkachenko ([@LapsFor](https://github.com/LapsFor))
