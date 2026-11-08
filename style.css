@@ -1,0 +1,154 @@
+.hidden {
+    display: none;
+}
+
+/* Базовые цвета из макета (image_ae2738.jpg) */
+body {
+    background-color: #131313; /* Глубокий темный фон */
+    color: #ffffff;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Карточка поиска по центру */
+.search-card {
+    background-color: #1e1e1e; /* Цвет блоков из макета */
+    border: 1px solid #333333; /* Строгая матовая рамка */
+    border-radius: 4px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Легкая тень без свечения */
+}
+
+/* Стилизация инпутов (полей ввода) */
+.form-control, .form-select, .input-group-text {
+    background-color: #131313;
+    border: 1px solid #333333;
+    color: #ffffff;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #1a1a1a;
+    border-color: #555555;
+    color: #ffffff;
+    box-shadow: none; /* Убираем синее свечение Bootstrap */
+}
+
+.input-group-text {
+    color: #666666;
+    border-left: none;
+    border-right: none;
+}
+
+/* Кнопка в стиле минимализма */
+.btn-custom {
+    background-color: #2a2a2a;
+    border: 1px solid #444444;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: 0.2s ease;
+}
+
+.btn-custom:hover {
+    background-color: #383838;
+    border-color: #555555;
+    color: #ffffff;
+}
+
+/* Текстовые элементы */
+.text-muted-custom {
+    color: #888888;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.brand-logo {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* Общий стиль для панелей профиля и матчей (наследуем стиль search-card) */
+.panel-custom {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Тень чуть меньше, чем у главного поиска */
+}
+
+/* Квадрат для аватара */
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: #131313; /* Вдавленный цвет фона */
+    border: 1px solid #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666666;
+    font-weight: 500;
+}
+
+/* Приглушенные цвета для побед/поражений под темную тему */
+.text-win { 
+    color: #4ade80; 
+}
+.text-loss { 
+    color: #f87171; 
+}
+
+/* Верхняя панель навигации */
+.navbar-custom {
+    background-color: #1e1e1e; /* Тот же цвет, что у карточек */
+    border-bottom: 1px solid #333333; /* Отделяем строгой линией снизу */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Легкая тень вниз */
+}
+
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: #131313; /* Заглушка, пока грузится картинка */
+    border: 1px solid #333333;
+    
+    /* Добавляем настройки для фоновой картинки: */
+    background-size: cover; /* Картинка заполняет весь блок, обрезая лишнее */
+    background-position: center; /* Центрируем картинку */
+    background-repeat: no-repeat; /* Не размножаем картинку, если она маленькая */
+}
+
+/* Базовый стиль карточки матча */
+.match-card {
+    border: 1px solid transparent;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Эффект при наведении (опционально) */
+.match-card:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+
+/* Иконка ранга */
+.match-rank-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+/* --- ЦВЕТА ПОБЕДЫ --- */
+.match-win {
+    background-color: rgba(74, 222, 128, 0.08); /* 8% зеленого на темном фоне */
+    border-color: rgba(74, 222, 128, 0.2); /* Рамка чуть ярче */
+}
+.match-win .rr-change {
+    color: #4ade80; /* Яркий текст для плюса */
+}
+
+/* --- ЦВЕТА ПОРАЖЕНИЯ --- */
+.match-loss {
+    background-color: rgba(248, 113, 113, 0.08); /* 8% красного на темном фоне */
+    border-color: rgba(248, 113, 113, 0.2);
+}
+.match-loss .rr-change {
+    color: #f87171; /* Яркий текст для минуса */
+}

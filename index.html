@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Tracker | Terminal</title>
+    
+    <!-- Подключаем Bootstrap 5 для сетки -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Подключаем ваш отдельный файл стилей -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pt-5">
+    
+<nav class="navbar-custom px-4 py-3 fixed-top w-100 d-flex justify-content-between align-items-center">
+        <div class="brand-logo text-white">
+            V-TRACKER <span class="fw-light" style="font-size: 1rem;">TERMINAL</span>
+        </div>
+        <button class="btn btn-custom px-4" onclick="showPage('FindPage')">
+            Новый поиск
+        </button>
+    </nav>
+
+<!-- Прячем страницу в странице  -->
+<!-- Прячем страницу в странице  -->
+<section id="FindPage" class="page">
+    
+    <!-- Внутренний контейнер для центрирования на весь экран -->
+    <div class="d-flex flex-column justify-content-center align-items-center min-vh-100" style="margin-top: -80px;">
+        
+        <!-- Логотип и заголовок над поиском -->
+        <div class="text-center mb-4">
+            <div class="brand-logo mb-1">V-TRACKER <span class="fw-light">TERMINAL</span></div>
+            <div class="text-muted-custom">VALORANT ANALYTICS ENGINE</div>
+        </div>
+
+        <!-- Контейнер с формой поиска -->
+        <div class="search-card w-100" style="max-width: 480px;">
+            
+            <div class="mb-3">
+                <label class="form-label text-muted-custom mb-2">Player Credentials</label>
+                <div class="input-group">
+                    <input type="text" id="inputName" class="form-control" placeholder="Riot ID (e.g. LapsFor)">
+                    <span class="input-group-text">#</span>
+                    <input type="text" id="inputTag" class="form-control" placeholder="Tag (e.g. 1234)" style="max-width: 120px;">
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label text-muted-custom mb-2">Server Region</label>
+                <select id="inputRegion" class="form-select">
+                    <option value="eu" selected>EU (Europe)</option>
+                    <option value="na">NA (North America)</option>
+                    <option value="ap">AP (Asia Pacific)</option>
+                    <option value="kr">KR (Korea)</option>
+                    <option value="br">BR (Brazil)</option>
+                </select>
+            </div>
+
+            <button id="FindButton" class="btn btn-custom w-100 py-2">INITIALIZE SEARCH</button>
+        </div>
+
+        <!-- Подвал (Footer) под формой -->
+        <div class="text-center mt-5">
+            <div class="text-muted-custom" style="font-size: 0.7rem;">
+                STATUS: SYNCHRONIZED <br>
+                DATA REFRESHED VIA VANGUARD PROTOCOL
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- Наша скрытая страница статистики. container - центрирует, mt-5 - отступ сверху -->
+<section id="stats-page" class="page hidden container mt-5 pt-4">
+    
+    <!-- ВЕРХНИЙ БЛОК: Карточка профиля -->
+    <div class="panel-custom mb-5 p-4 d-flex align-items-center">
+        <!-- Аватар и уровень -->
+        <div class="text-center me-4">
+            <div id="player-logo" class="avatar-placeholder rounded mb-2"></div>
+            <span id="player-rank" class="text-muted-custom">Ур. 154</span>
+        </div>
+        
+        <!-- Инфо профиля -->
+        <div>
+            <h2 class="mb-1"><span id="player-name">Nickname</span> <span id="player-tag" class="text-muted-custom text-lowercase">#tag</span></h2>
+            <div class="d-flex align-items-center gap-2">
+                <span id="player-tier" class="fw-bold">Immortal 1</span>
+                <span id="player-rr" class="text-muted-custom">• 85 RR</span>
+                <span id="player-elo" class="text-muted-custom">• 1200 ELO</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- НИЖНИЙ БЛОК: Список матчей -->
+    <div>
+        <h3 class="text-muted-custom mb-3">История матчей</h3>
+        
+        <!-- Контейнер с матчами -->
+<div id="matches-container" class="d-flex flex-column gap-2">
+    <!-- КАРТОЧКА ПОБЕДЫ -->
+    <div class="match-card match-win d-flex justify-content-between align-items-center p-3 rounded">
+        
+        <!-- 1. Название карты -->
+        <div class="fw-bold" style="width: 80px;">Bind</div>
+        
+        <!-- 2. Счет на карте -->
+        <div class="fs-5 fw-bold">13 : 9</div>
+        
+        <!-- 3. Фото ранга и сколько РР -->
+        <div class="d-flex align-items-center gap-2" style="width: 100px;">
+            <img src="rank-icon-placeholder.png" alt="Rank" class="match-rank-icon">
+            <span class="fw-bold rr-change">+18</span>
+        </div>
+        
+        <!-- 4. К/Д -->
+        <div class="text-muted-custom" style="width: 60px;">1.50</div>
+        
+        <!-- 5. Счет по КДА -->
+        <div class="fw-bold" style="width: 100px; text-align: right;">21 / 14 / 5</div>
+        
+    </div>
+
+    <!-- КАРТОЧКА ПОРАЖЕНИЯ -->
+    <div class="match-card match-loss d-flex justify-content-between align-items-center p-3 rounded">
+        <!-- 1. Название карты -->
+        <div class="fw-bold" style="width: 80px;">Ascent</div>
+        <!-- 2. Счет на карте -->
+        <div class="fs-5 fw-bold">11 : 13</div>
+        <!-- 3. Фото ранга и сколько РР -->
+        <div class="d-flex align-items-center gap-2" style="width: 100px;">
+            <img src="rank-icon-placeholder.png" alt="Rank" class="match-rank-icon">
+            <span class="fw-bold rr-change">-15</span>
+        </div>
+        <!-- 4. К/Д -->
+        <div class="text-muted-custom" style="width: 60px;">0.83</div>
+        <!-- 5. Счет по КДА -->
+        <div class="fw-bold" style="width: 100px; text-align: right;">15 / 18 / 9</div>
+    </div>
+</div>
+
+</section>
+
+<!-- СТРАНИЦА 3: Детали конкретного матча -->
+<section id="match-details-page" class="page hidden container mt-5 pt-4">
+    
+    <!-- Кнопка возврата к списку матчей -->
+    <button class="btn btn-custom mb-4" onclick="showPage('stats-page')">
+        ⬅ Вернуться к истории
+    </button>
+
+    <!-- Шапка матча: Карта, Счет -->
+    <div class="panel-custom mb-4 p-4 text-center">
+        <h2 id="detail-map-name" class="fw-bold text-white mb-2">Загрузка карты...</h2>
+        <h4 id="detail-match-score" class="text-muted-custom">Загрузка счета...</h4>
+    </div>
+
+    <!-- Контейнер для списка всех 10 игроков -->
+    <div id="match-players-container" class="d-flex flex-column gap-2">
+        <!-- Сюда JS будет вставлять игроков -->
+    </div>
+
+</section>
+
+
+
+
+    <!-- Ваши скрипты для логики -->
+    <script src="FindsMetod.js"></script>
+     <script src="hiddenMetod.js"></script>
+     <script src="showHistory.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
